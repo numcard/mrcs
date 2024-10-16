@@ -2,6 +2,9 @@
 Надоел _убогий_ __дизайн__ и куча ~~говноблоков~~? Тогда вам суда!<br>
 Суть стилей и js - убрать все лишнее, предоставить максимум функционала, рационально использовать доступное место и т.п.
 
+# Что я получу?
+![Фото 4!](https://github.com/numcard/mrcs/blob/master/4.png?raw=true")
+
 # Как установить?
 1. Ставим расширение для браузера [User JavaScript and CSS](https://chromewebstore.google.com/detail/user-javascript-and-css/nbhcbdghjpllgmfilhnhkllmkecfmpld)
    ![Фото 1!](https://github.com/numcard/mrcs/blob/master/1.png?raw=true")
