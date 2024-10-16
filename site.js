@@ -13,6 +13,7 @@
     '.users_chat_online .bx-chevron-down', // чат
     '.login_visit, .img_back_visit', // чат
     '.block_t_u, .heading_block, #new_news, .row_events', // новости
+    '.bottom_stats', // стата в подвале
     '#servers + div', // топики на форуме
 ].forEach(selector => $(selector).remove());
 
