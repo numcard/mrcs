@@ -83,6 +83,7 @@
 
 .servers-block {
 	justify-content: unset;
+	flex: 1;
 }
 
 .servers-info-span {
