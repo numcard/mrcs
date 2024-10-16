@@ -1,3 +1,5 @@
+//------------------------- Главная страница -------------------------//
+
 [
     '.preloader', // бесполезный прелоадер
     '.center_sub', // меню слева
@@ -15,13 +17,12 @@
     '.block_t_u, .heading_block, #new_news, .row_events', // новости
     '.bottom_stats', // стата в подвале
     '#servers + div', // топики на форуме
-].forEach(selector => $(selector).remove());
+].forEach((selector) => $(selector).remove());
 
 [
     '.search_user', // поиск пользователей
     '.head_block', // блок под меню
-].forEach(selector => $(selector).parent().remove());
-
+].forEach((selector) => $(selector).parent().remove());
 
 // свое меню
 $('.navTopItems').html(`
@@ -42,7 +43,11 @@ $('.button_plus_purse').parent().remove();
 $('.flex_mini_user').appendTo('.info_navigation');
 $('.balance_mini_profile').remove();
 $('.flex_balance_mp').prependTo('.flex_mini_user');
-$('.flex_balance_mp').replaceWith('<a href="/purse" class="flex_balance_mp">' + $('.flex_balance_mp').html() + '</a>');
+$('.flex_balance_mp').replaceWith(
+    '<a href="/purse" class="flex_balance_mp">' +
+        $('.flex_balance_mp').html() +
+        '</a>'
+);
 
 // блок онлайна
 $('.flex_today').html('Онлайн');
@@ -53,11 +58,42 @@ setTimeout(() => {
         const $parent = $($image).parents('a')[0];
         const name = $image.getAttribute('alt');
         const rank = $parent.dataset.originalTitle;
-        
+
         $parent.setAttribute('data-html', `true`);
         $parent.setAttribute('data-original-title', `${name} ${rank}`);
-    })
+    });
 }, 1000);
 
 // фикс бага с онлайном, когда онлайн 0 - полоска заполнена
-$('progress[value="0"]').each((i, $item) => $item.value = 1);
+$('progress[value="0"]').each((i, $item) => ($item.value = 1));
+
+//------------------------- Статистика -------------------------//
+
+if (location.pathname == '/stats') {
+    [
+        '.blocked_block', // баннер под меню
+        'span:contains("Игрок")', // Игрок
+        '.table-adaptive .table-row > .row > div.with-icon > i', // иконка
+    ].forEach((selector) => $(selector).remove());
+    
+    $('#search_stats + span').html('Поиск');
+    
+    $('.table-row > .row > div:nth-child(3)')
+        .removeClass('col-lg-2')
+        .addClass('col');
+        
+    $('.table-row > .row > div:nth-child(4)')
+        .removeClass('col-lg-2')
+        .addClass('col');
+        
+    $('.with-description').each((i, item) => {
+        if (!item.querySelector('img') && item.childElementCount == 1) {
+            item.classList.add('nick-only');
+        }
+    });
+  
+    // удаляем js скролл который написали путем клонирования
+    const element = document.querySelector('.serversList');
+    const clonedElement = element.cloneNode(true);
+    element.parentNode.replaceChild(clonedElement, element);
+}
