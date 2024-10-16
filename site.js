@@ -33,6 +33,7 @@ $('.navTopItems').html(`
     <a class="navTopItem" href="/banlist"><i class="bx bx-block"></i>Баны</a>
     <a class="navTopItem" href="/muts_v2"><i class="bx bx-block"></i>Муты</a>
     <a class="navTopItem" href="/chatlog"><i class="bx bx-list-ul"></i>Чатлог</a>
+    <a class="navTopItem" href="/admins"><i class="bx bxs-bolt"></i>Админы</a>
     <a class="navTopItem" href="/support"><i class="bx bxs-help-circle"></i>Тех. поддержка</a>
 `);
 
@@ -86,14 +87,29 @@ if (location.pathname == '/stats') {
         .removeClass('col-lg-2')
         .addClass('col');
         
-    $('.with-description').each((i, item) => {
-        if (!item.querySelector('img') && item.childElementCount == 1) {
+  $('.with-description').each((i, item) => {
+    if (!item.querySelector('img') && item.childElementCount == 1) {
             item.classList.add('nick-only');
-        }
-    });
+    }
+  })
   
-    // удаляем js скролл который написали путем клонирования
+  // удаляем js скролл который написали путем клонирования
     const element = document.querySelector('.serversList');
     const clonedElement = element.cloneNode(true);
     element.parentNode.replaceChild(clonedElement, element);
+    
+    const tableHead = $('.table-adaptive .table-row')[0].cloneNode(true);
+    $('.table-adaptive .table-row > .row > div.with-description > span').remove();
+    
+    $(tableHead).find('p').remove();
+    tableHead.children[0].removeAttribute('data-target');
+    tableHead.children[0].removeAttribute('data-toggle');
+    tableHead.removeAttribute('id');
+    $(tableHead).addClass('table-head');
+    
+    $(tableHead).find('.with-description').removeClass('with-description');
+    $(tableHead).find('.with-icon').removeClass('with-icon');
+    $(tableHead).find('.area-label').parent().html('<span>Скилл</span>');
+    
+    $(tableHead).prependTo('.table-adaptive.table-fused');
 }

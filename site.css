@@ -104,6 +104,7 @@
     margin-bottom: 0;
     flex-wrap: wrap;
     gap: 10px;
+    justify-content: center;
 }
 
 .serversList a {
@@ -118,15 +119,22 @@
 .block_select_servers_blocked {
     background: unset;
     justify-content: flex-end;
+    padding: 0 20px;
+    border-radius: 11px;
 }
 
 .block_search {
     height: 60px;
+  border-radius: 11px;
 }
 
 .block_solution {
     background: unset;
     padding: 0;
+}
+
+.table-adaptive.table-fused {
+    overflow: unset;
 }
 
 .table-adaptive.table-fused.mt-4 {
@@ -152,11 +160,12 @@
 }
 
 .table-adaptive .table-row > .row > .with-description {
-    padding: 6px 0;
+  padding: 6px 0;
 }
 
 .table-adaptive .table-row > .row > div.with-description > p {
     font-size: 14px;
+    margin: 22px 0 0;
 }
 
 .table-adaptive .table-row > .row > div.with-description > p a i {
@@ -173,8 +182,8 @@
 }
 
 .small_us_av {
-    height: 50px !important;
-    width: 50px !important;
+  height: 50px !important;
+  width: 50px !important;
 }
 
 .table-adaptive .table-row > .row > div:nth-child(2):not(.nick-only) > p {
@@ -190,8 +199,8 @@ img {
 }
 
 .nick-only p {
-    margin: 20px 0 0 !important;
-    width: 190px !important;
+  margin: 20px 0 0 !important;
+  width: 190px !important;
 }
 
 #stats .area-label {
@@ -200,26 +209,26 @@ img {
 
 #stats .label.label-warning {
     background-color: #ff3a00;
-    color: white;
-     border-color: #ff3a00;
+  color: white;
+  border-color: #ff3a00;
 }
 
 #stats .label.label-success {
     background-color: #fcc42c;
-    color: black;
-    border-color: #fcc42c;
+  color: black;
+  border-color: #fcc42c;
 }
 
 #stats .label.label-danger {
     background-color: black;
-    color: white;
-    border-color: black;
+  color: white;
+  border-color: black;
 }
 
 #stats .label.label-primary {
     background-color: #fe860b;
-    color: black;
-    border-color: #fe860b;
+  color: black;
+  border-color: #fe860b;
 }
 
 #stats .label {
@@ -230,3 +239,19 @@ img {
     scale: 1.3;
 }
 
+.table-head > .row > div {
+    display: flex;
+    align-items: center;
+    margin-left: 3px;
+  font-size: 14px;
+}
+
+.table-head {
+    position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+.table-adaptive .table-row>.row>div>p,.table-adaptive .table-row>.row>div>span {
+    width: -webkit-fill-available;
+}
